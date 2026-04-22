@@ -7,7 +7,6 @@ public abstract class Carte implements Comparable<Carte>{
     protected Sectiune sectiune;
     protected int anPublicatie;
     protected boolean disponibila;
-    protected String tipCarte="Carte"; //pt prtn
 
     public Carte(){}
     public Carte(int id, String titlu, Autor autor, Sectiune sectiune, int anPublicatie, boolean disponibila){
