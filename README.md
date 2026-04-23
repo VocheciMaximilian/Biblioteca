@@ -93,4 +93,10 @@ Reprezinta operatia prin care o carte este oferita temporar unui cititor.
 - `cititor` - obiectul cititor care imprumuta cartea;
 - `bibliotecar` - obiectul bibliotecar care autorizeaza imprumutul;
 - `carte` - obiectul carte imprumutat;
--
+- `dataImprumut` - data la care a fost imprumutata cartea;
+- `dataReturnare` - data la care a fost returnata cartea;
+- `activ` - arata daca mai este activ imprumutul.
+### 4.10. `Abonament` 
+#### Rol 
+Reprezinta tipul de abonament pe care un cititor il poate achizitiona.
+#### Atribute
