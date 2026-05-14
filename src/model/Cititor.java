@@ -11,6 +11,9 @@ public class Cititor extends Persoana{
     public String getTipAbonament(){
         return this.abonament.getTip();
     }
+    public Abonament getAbonament(){
+        return this.abonament;
+    }
     public void setTipAbonament(Abonament abonament){
         this.abonament=abonament;
     }

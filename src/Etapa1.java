@@ -7,7 +7,7 @@ import model.Cititor;
 import model.Sectiune;
 import service.BibliotecaService;
 
-public class App {
+public class Etapa1 {
     public static void main(String[] args) {
         BibliotecaService bibliotecaService = new BibliotecaService();
 

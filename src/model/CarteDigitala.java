@@ -9,6 +9,10 @@ public class CarteDigitala extends Carte{
     public int getMarimeMB(){
         return this.marimeMB;
     }
+    @Override
+    public boolean getDisponibila(){
+        return true;
+    }
     @Override public String toString(){
         return "*****************\nCarteDigitala"+"\n id="+this.id+"\ntitlu="+this.titlu+"\nautor="+this.autor.getNume()+"\nsectiune="+this.sectiune.getNume()+"\nanPublicatie="+this.anPublicatie+"\ndisponibila="+this.disponibila+"\nmarimeMB="+this.marimeMB+"\n*****************";
     }

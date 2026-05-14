@@ -18,6 +18,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class BibliotecaService {
+    private final AuditService auditService = AuditService.getInstance();
 
     private List<Carte> carti;
     private Map<Integer, Cititor> cititori;
@@ -42,6 +43,7 @@ public class BibliotecaService {
     }
 
     public void adaugaAbonament(Abonament abonament) {
+        log("adaugaAbonament");
         if (abonament == null) {
             System.out.println("Abonamentul este null.");
             return;
@@ -59,6 +61,7 @@ public class BibliotecaService {
     }
 
     public void adaugaCarte(Carte carte) {
+        log("adaugaCarte");
         if (carte == null) {
             System.out.println("Cartea este null.");
             return;
@@ -75,6 +78,7 @@ public class BibliotecaService {
     }
 
     public void adaugaCititor(Cititor cititor) {
+        log("adaugaCititor");
         if (cititor == null) {
             System.out.println("Cititorul este null.");
             return;
@@ -90,6 +94,7 @@ public class BibliotecaService {
     }
 
     public void adaugaBibliotecar(Bibliotecar bibliotecar) {
+        log("adaugaBibliotecar");
         if (bibliotecar == null) {
             System.out.println("Bibliotecarul este null.");
             return;
@@ -105,6 +110,7 @@ public class BibliotecaService {
     }
 
     public void afiseazaCarti() {
+        log("afiseazaCarti");
         if (carti.isEmpty()) {
             System.out.println("Nu exista carti in biblioteca.");
             return;
@@ -117,6 +123,7 @@ public class BibliotecaService {
     }
 
     public void afiseazaCartiDisponibile() {
+        log("afiseazaCartiDisponibile");
         boolean exista = false;
         System.out.println("=== CARTI DISPONIBILE ===");
 
@@ -133,6 +140,7 @@ public class BibliotecaService {
     }
 
     public void cautaCarteDupaTitlu(String titluCautat) {
+        log("cautaCarteDupaTitlu");
         boolean gasita = false;
         System.out.println("=== REZULTATE CAUTARE DUPA TITLU ===");
 
@@ -149,6 +157,7 @@ public class BibliotecaService {
     }
 
     public void afiseazaCartiSortate() {
+        log("afiseazaCartiSortate");
         if (carti.isEmpty()) {
             System.out.println("Nu exista carti pentru sortare.");
             return;
@@ -164,6 +173,7 @@ public class BibliotecaService {
     }
 
     public void afiseazaCartiDupaAutor(String numeAutor) {
+        log("afiseazaCartiDupaAutor");
         boolean gasita = false;
         System.out.println("=== CARTI DUPA AUTOR ===");
 
@@ -180,6 +190,7 @@ public class BibliotecaService {
     }
 
     public void afiseazaCartiDupaSectiune(String numeSectiune) {
+        log("afiseazaCartiDupaSectiune");
         boolean gasita = false;
         System.out.println("=== CARTI DIN SECTIUNE ===");
 
@@ -196,6 +207,7 @@ public class BibliotecaService {
     }
 
     public void imprumutaCarte(int idImprumut, int idCititor, int idBibliotecar, int idCarte, int nrZile) {
+        log("imprumutaCarte");
         Cititor cititor = cititori.get(idCititor);
         Bibliotecar bibliotecar = bibliotecari.get(idBibliotecar);
         Carte carte = gasesteCarteDupaId(idCarte);
@@ -261,6 +273,7 @@ public class BibliotecaService {
     }
 
     public void returneazaCarte(int idImprumut) {
+        log("returneazaCarte");
         Imprumut imprumut = gasesteImprumutDupaId(idImprumut);
 
         if (imprumut == null) {
@@ -285,6 +298,7 @@ public class BibliotecaService {
     }
 
     public void afiseazaImprumuturi() {
+        log("afiseazaImprumuturi");
         if (imprumuturi.isEmpty()) {
             System.out.println("Nu exista imprumuturi.");
             return;
@@ -297,6 +311,7 @@ public class BibliotecaService {
     }
 
     public void afiseazaImprumuturiActive() {
+        log("afiseazaImprumuturiActive");
         boolean exista = false;
         System.out.println("=== IMPRUMUTURI ACTIVE ===");
 
@@ -313,6 +328,7 @@ public class BibliotecaService {
     }
 
     public void rezervaCarte(int idRezervare, int idCititor, int idCarte) {
+        log("rezervaCarte");
         Cititor cititor = cititori.get(idCititor);
         Carte carte = gasesteCarteDupaId(idCarte);
 
@@ -358,6 +374,7 @@ public class BibliotecaService {
     }
 
     public void anuleazaRezervare(int idRezervare) {
+        log("anuleazaRezervare");
         Rezervare rezervare = gasesteRezervareDupaId(idRezervare);
 
         if (rezervare == null) {
@@ -375,6 +392,7 @@ public class BibliotecaService {
     }
 
     public void afiseazaRezervari() {
+        log("afiseazaRezervari");
         if (rezervari.isEmpty()) {
             System.out.println("Nu exista rezervari.");
             return;
@@ -387,6 +405,7 @@ public class BibliotecaService {
     }
 
     public void genereazaPenalizareIntarziere(int idPenalizare, int idImprumut, double taxaPeZi) {
+        log("genereazaPenalizareIntarziere");
         Imprumut imprumut = gasesteImprumutDupaId(idImprumut);
 
         if (imprumut == null) {
@@ -425,6 +444,7 @@ public class BibliotecaService {
     }
 
     public void platestePenalizare(int idPenalizare) {
+        log("platestePenalizare");
         Penalizare penalizare = gasestePenalizareDupaId(idPenalizare);
 
         if (penalizare == null) {
@@ -442,6 +462,7 @@ public class BibliotecaService {
     }
 
     public void afiseazaPenalizari() {
+        log("afiseazaPenalizari");
         if (penalizari.isEmpty()) {
             System.out.println("Nu exista penalizari.");
             return;
@@ -451,6 +472,10 @@ public class BibliotecaService {
         for (Penalizare penalizare : penalizari) {
             System.out.println(penalizare);
         }
+    }
+
+    private void log(String actionName) {
+        auditService.logAction(actionName);
     }
 
     private Carte gasesteCarteDupaId(int idCarte) {
